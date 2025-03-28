@@ -1,1 +1,38 @@
-// A toi de jouer pour cette partie :-) Happy coding !
+//Pardon d'avance ça ressemble à rien du toutvparce que j'ai testé 
+
+const cityInput = document.getElementById("cityInput");
+const cityName = document.getElementById("city");
+const buttonInput = document.querySelector("button");
+const coordonates = document.getElementById("gps");
+
+const urlLyon =
+  "https://nominatim.openstreetmap.org/search?q=Lyon&format=json&addressdetails=1&limit=1";
+const urlParis =
+  "https://nominatim.openstreetmap.org/search?q=Paris&format=json&addressdetails=1&limit=1";
+
+//relier l'input à l'appel api
+const urlInput = `https://nominatim.openstreetmap.org/search?q=${cityInput.value}&format=json&addressdetails=1&limit=1`; //Ne fonctionne pas pour le moment
+
+async function fetchCoordinates(town) {
+  try {
+    const response = await fetch(town);
+    const townInput = await response.json();
+
+    cityName.innerHTML = townInput[0].name; //pas obligatoire mais là pour le moment
+    coordonates.innerHTML = `coordonnées GPS : ${townInput[0].lat} , ${townInput[0].lon}`;
+
+    console.log(townInput); //verifier que l'appel ok
+    console.log("Ville : ", townInput[0].name);
+    console.log("Latitude : ", townInput[0].lat); // verifier navigation dans le tableau
+    console.log(coordonates); //fonctionne aussi (moche)
+  } catch (error) {
+    console.error("Failed to catch error: ", error);
+  }
+}
+
+fetchCoordinates(urlLyon); //là pour être faire un vrai appel api pendant que je tente de lier l'input à l'appel
+
+buttonInput.addEventListener("click", () => {
+  cityName.innerHTML = cityInput.value; //test pour voir si la ville change de nom au clic
+  fetchCoordinates(urlInput);
+});

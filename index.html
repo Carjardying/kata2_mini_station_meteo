@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-Station Météo</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="weather-container">
@@ -15,9 +16,11 @@
         <h1 id="city">Chargement...</h1>
         <div id="gps"></div>
         <div id="temperature">-°C</div>
-        <div id="details">Mise à jour en cours...</div>
+        <div id="details">Actuellement, l'input n'est pas relié à l'appel Api. Les coordonnées et le nom de la ville affiché le sont avec un appel sur Lyon. l'appel est aussi affiché dans la console.
+            /!\ J'ai relié l'input au nom affiché (h1) donc seul lui changera si vous entrez un truc dans l'input
+        </div>
     </div>
-
-    <script src="script.js"></script>
+    <!-- j'ai enlevé le script là parce que je l'ai déclaré dans le header et ça faisait doublon.
+     J'avoue que j'ai mis littéralement 1h à le voir et je ne comprenais pas pourquoi ma console m'indiquait l'erreur "const already declared" -->
 </body>
 </html>
