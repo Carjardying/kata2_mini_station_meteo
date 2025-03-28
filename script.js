@@ -1,4 +1,4 @@
-//Pardon d'avance ça ressemble à rien du toutvparce que j'ai testé 
+//Pardon d'avance ça ressemble à rien du toutparce que j'ai testé des trucs
 
 const cityInput = document.getElementById("cityInput");
 const cityName = document.getElementById("city");
@@ -30,7 +30,7 @@ async function fetchCoordinates(town) {
   }
 }
 
-fetchCoordinates(urlLyon); //là pour être faire un vrai appel api pendant que je tente de lier l'input à l'appel
+fetchCoordinates(urlLyon); //là pour faire un vrai appel api pendant que je tente de lier l'input à l'appel
 
 buttonInput.addEventListener("click", () => {
   cityName.innerHTML = cityInput.value; //test pour voir si la ville change de nom au clic
